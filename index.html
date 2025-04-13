@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lá Beauté Studio & Academy - Excelência em Beleza</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --navy: #000080;
+            --gold: #D4AF37;
+            --light-gold: #F5D98B;
+            --dark: #0A0A2A;
+            --light: #F5F5FF;
+            --accent: #1A1A4B;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(rgba(0, 0, 50, 0.7), rgba(0, 0, 50, 0.7)), url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            color: white;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            color: var(--light-gold);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            background: var(--light-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--navy);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--gold);
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--navy);
+            font-family: 'Playfair Display', serif;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            margin: 15px auto;
+        }
+        
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border: 5px solid var(--gold);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-content {
+            flex: 1;
+        }
+        
+        .about-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--navy);
+        }
+        
+        .services {
+            background-color: var(--light);
+            text-align: center;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--gold);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+        
+        .amenities {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .amenities .section-title {
+            color: var(--gold);
+        }
+        
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .amenity-card {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 3px solid var(--gold);
+            transition: transform 0.3s ease;
+        }
+        
+        .amenity-card:hover {
+            transform: translateX(10px);
+        }
+        
+        .amenity-icon {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-right: 20px;
+        }
+        
+        .testimonials {
+            background-color: var(--light);
+            text-align: center;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            border: 1px solid var(--gold);
+            position: relative;
+        }
+        
+        .testimonial:before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            color: var(--gold);
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--navy);
+        }
+        
+        .contact {
+            text-align: center;
+            background: linear-gradient(to right, var(--navy), var(--accent));
+            color: white;
+        }
+        
+        .contact .section-title {
+            color: var(--gold);
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 250px;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-method:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-right: 15px;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .social-links {
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+        
+        .social-links a:hover {
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .about {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Lá Beauté Studio & Academy</a>
+            <ul class="nav-links">
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#amenities">Comodidades</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <header>
+        <h1 class="logo">Lá Beauté Studio & Academy</h1>
+        <p class="tagline">Excelência em cuidados de beleza e bem-estar em um ambiente sofisticado e acolhedor</p>
+        <a href="#contact" class="btn">Agende seu horário</a>
+    </header>
+    
+    <section id="about" class="about-section">
+        <h2 class="section-title">Sobre Nós</h2>
+        <div class="about">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Sara Almeida">
+            </div>
+            <div class="about-content">
+                <h3>Sara Almeida</h3>
+                <p>Com 8 anos de experiência no ramo de nail designer, Sara Almeida transformou sua paixão por beleza e cuidado pessoal no Lá Beauté Studio & Academy, um espaço que vai muito além de um simples salão de beleza.</p>
+                <p>Minha jornada começou com a especialização em nail design, onde desenvolvi técnicas exclusivas e uma abordagem personalizada para cada cliente. Ao longo dos anos, expandi meus conhecimentos para outras áreas da beleza, sempre com o mesmo compromisso com a excelência e satisfação dos clientes.</p>
+                <p>No Lá Beauté Studio & Academy, não oferecemos apenas serviços de beleza - proporcionamos uma experiência completa de bem-estar e autoestima, em um ambiente cuidadosamente projetado para seu conforto e relaxamento.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services" class="services">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-hand-sparkles"></i>
+                </div>
+                <h3>Nail Design Premium</h3>
+                <p>Serviços especializados em alongamento de unhas, esmaltação em gel, nail art personalizada e tratamentos para fortalecimento das unhas.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h3>Design de Sobrancelhas</h3>
+                <p>Técnicas avançadas de design e henna para realçar sua expressão facial com naturalidade e harmonia.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-magic"></i>
+                </div>
+                <h3>Maquiagem Profissional</h3>
+                <p>Maquiagem para eventos especiais, noivas ou aulas personalizadas para aprender técnicas profissionais.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Cursos e Workshops</h3>
+                <p>Formação profissional em nail design e outras técnicas de beleza, com certificação e acompanhamento pós-curso.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="amenities" class="amenities">
+        <h2 class="section-title">Nossas Comodidades</h2>
+        <div class="amenities-grid">
+            <div class="amenity-card">
+                <div class="amenity-icon">
+                    <i class="fas fa-cocktail"></i>
+                </div>
+                <div>
+                    <h3>Drinks Especiais</h3>
+                    <p>Soda italiana, refrigerantes, águas com e sem gás para refrescar seu momento de beleza.</p>
+                </div>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon">
+                    <i class="fas fa-coffee"></i>
+                </div>
+                <div>
+                    <h3>Café Gourmet</h3>
+                    <p>Seleção de cafés especiais para apreciar durante seu tratamento.</p>
+                </div>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon">
+                    <i class="fas fa-cookie"></i>
+                </div>
+                <div>
+                    <h3>Bolachinhas</h3>
+                    <p>Deliciosos biscoitos para acompanhar seu drink ou café.</p>
+                </div>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon">
+                    <i class="fas fa-couch"></i>
+                </div>
+                <div>
+                    <h3>Cadeira de Massagem</h3>
+                    <p>Relaxe enquanto espera ou durante alguns de nossos tratamentos.</p>
+                </div>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon">
+                    <i class="fas fa-snowflake"></i>
+                </div>
+                <div>
+                    <h3>Ambiente Climatizado</h3>
+                    <p>Ar-condicionado para seu conforto em qualquer estação do ano.</p>
+                </div>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <div>
+                    <h3>Wi-Fi Gratuito</h3>
+                    <p>Conectividade para você trabalhar ou se divertir durante sua visita.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials">
+        <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial">
+                <p class="testimonial-text">"O Lá Beauté é meu refúgio de beleza e relaxamento. Além dos serviços impecáveis de nail design, adoro poder tomar um café gourmet enquanto relaxo na cadeira de massagem. Sara é uma profissional incrível!"</p>
+                <p class="testimonial-author">- Ana Carolina</p>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">"Fiz o curso de nail design com a Sara e transformei minha carreira. Sua didática e atenção aos detalhes são excepcionais. O studio é lindo e super aconchegante!"</p>
+                <p class="testimonial-author">- Juliana Mendes</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <h2 class="section-title">Entre em Contato</h2>
+        <p>Agende seu horário ou tire suas dúvidas</p>
+        <div class="contact-info">
+            <div class="contact-method">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div>
+                    <h3>Telefone</h3>
+                    <p>(XX) XXXX-XXXX</p>
+                </div>
+            </div>
+            <div class="contact-method">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                    <h3>Email</h3>
+                    <p>contato@labeaute.com</p>
+                </div>
+            </div>
+            <div class="contact-method">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                    <h3>Endereço</h3>
+                    <p>Rua Exemplo, 123 - Bairro, Cidade/UF</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2023 Lá Beauté Studio & Academy. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
