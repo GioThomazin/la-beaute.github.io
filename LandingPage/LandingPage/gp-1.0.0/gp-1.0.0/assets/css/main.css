@@ -48,7 +48,7 @@ body.dark-mode {
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
+  --default-color: #080000; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #151515; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #1E1E8C; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
@@ -106,7 +106,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--heading-color);
+  color: #ffffff;
   font-family: var(--heading-font);
 }
 
@@ -189,11 +189,11 @@ h6 {
   font-size: 32px;
   margin: 0;
   font-weight: 700;
-  color: var(--heading-color);
+  color: #ffffff;
 }
 
 .header .logo span {
-  color: var(--accent-color);
+  color: #ffffff;
   font-size: 32px;
 }
 
@@ -485,7 +485,7 @@ h6 {
 --------------------------------------------------------------*/
 .footer {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color: #1E1E8C;
   font-size: 14px;
   position: relative;
 }
@@ -510,7 +510,7 @@ h6 {
   font-weight: 700;
   letter-spacing: 1px;
   font-family: var(--heading-font);
-  color: var(--heading-color);
+  color: #ffffff;
 }
 
 .footer .footer-about p {
@@ -548,7 +548,7 @@ h6 {
 }
 
 .footer .social-links a {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: #ffffff;
   background-color: color-mix(in srgb, var(--default-color) 5%, white 10%);
   display: flex;
   align-items: center;
@@ -601,7 +601,7 @@ h6 {
 }
 
 .footer .footer-links ul a {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color:#ffffff;
   display: inline-block;
   line-height: 1;
 }
@@ -891,7 +891,7 @@ section,
 .hero p {
   margin: 10px 0 0 0;
   font-size: 24px;
-  color: #000;
+  color: #080000;
 }
 
 .hero .icon-box {
@@ -1052,7 +1052,7 @@ section,
 # Services Section
 --------------------------------------------------------------*/
 .services .service-item {
-  background-color: var(--surface-color);
+  background-color: #e7e7e9;
   text-align: center;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
   padding: 80px 20px;
@@ -1533,7 +1533,7 @@ section,
   box-shadow: none;
   border-radius: 0;
   color: var(--default-color);
-  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
+  background-color: #000;
   border-color: color-mix(in srgb, var(--default-color), transparent 80%);
 }
 
