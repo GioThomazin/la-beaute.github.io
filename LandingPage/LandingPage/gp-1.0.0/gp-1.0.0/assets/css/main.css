@@ -11,6 +11,34 @@
 # Help: https://bootstrapmade.com/color-system/
 --------------------------------------------------------------*/
 /* Fonts */
+/* Tema Claro (padrão) */
+body {
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Tema Escuro */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Exemplo para links, headers e outros elementos */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode p,
+.dark-mode a {
+  color: #ffffff;
+}
+
+.dark-mode .icon-box,
+.dark-mode .service-item {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Raleway",  sans-serif;
@@ -1197,6 +1225,18 @@ section,
 .portfolio .portfolio-item {
   position: relative;
   overflow: hidden;
+}
+.portfolio-item {
+  flex: 1 1 300px; /* ou ajuste para o tamanho desejado */
+  max-width: 300px;
+  margin: 10px;
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .portfolio .portfolio-item .portfolio-info {
